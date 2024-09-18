@@ -39,7 +39,7 @@ const Calculator: React.FC<CalculatorProps> = ({
         </div>
 
         <div className="flex flex-col mb-5 tasa">
-          <label className='mb-1 font-bold' htmlFor="rate">Tasa de Interés (%):</label>
+          <label className='mb-1 font-bold' htmlFor="rate">Tasa de Interés: (%)</label>
           <input
             className='p-3 rounded-md text-l border border-solid border-gray-300'
             id="rate"
@@ -51,7 +51,7 @@ const Calculator: React.FC<CalculatorProps> = ({
         </div>
 
         <div className="flex flex-col mb-5 años">
-          <label className='mb-1 font-bold' htmlFor="years">Duración del Préstamo (Años):</label>
+          <label className='mb-1 font-bold' htmlFor="years">Duración del Préstamo: (Años)</label>
           <input
             className='p-3 rounded-md text-l border border-solid border-gray-300'
             id="years"

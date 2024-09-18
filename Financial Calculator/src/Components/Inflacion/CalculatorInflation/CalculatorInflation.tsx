@@ -34,7 +34,7 @@ const CalculatorInflation: React.FC<CalculatorProps> = ({
       </div>
 
       <div className="flex flex-col mb-5 tasa">
-        <label className='mb-1 font-bold' htmlFor="inflationRate">Tasa de Inflación (%):</label>
+        <label className='mb-1 font-bold' htmlFor="inflationRate">Tasa de Inflación: (%)</label>
         <input
           className='p-3 rounded-md text-l border border-solid border-gray-300'
           id="inflationRate"
