@@ -6,6 +6,9 @@ import Amortizacion from './Components/Amortizacion_Prestamos/Amortizacion';
 import Inflacion from './Components/Inflacion/Inflacion';
 import './App.css';
 
+// poner assistant
+// hacer responsive
+
 const App: React.FC = () => {
 
   return (

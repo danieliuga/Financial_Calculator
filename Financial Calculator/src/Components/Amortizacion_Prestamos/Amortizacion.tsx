@@ -50,6 +50,8 @@ const Amortizacion: React.FC = () => {
         setAmortizationData(amortizationSchedule);
     };
 
+    const periodicDeposit = amortizationData.length > 0 ? amortizationData[0].payment : 0;
+
     return (
         <div className='App'>
             <div className="amortizacion">
@@ -74,9 +76,8 @@ const Amortizacion: React.FC = () => {
                         <div className="mt-5">
                             <Graphics
                                 principal={principal}
-                                totalDeposits={0}
                                 interestEarned={amortizationData.reduce((acc, data) => acc + data.interestPaid, 0)}
-                                periodicDeposit={0}
+                                periodicDeposit={periodicDeposit}
                             />
                         </div>
                     )}

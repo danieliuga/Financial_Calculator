@@ -1,66 +1,41 @@
 import React, { useState } from 'react';
 
-import Graphics from '../Interes_Compuesto/Graphics/Graphics';
-import Calculator from '../Interes_Compuesto/Calculator/Calculator';
-import TableResults from '../Interes_Compuesto/TableResults/TableResults';
+import GraphicsInflation from './GraphicsInflation/GraphicsInflation';
+import CalculatorInflation from './CalculatorInflation/CalculatorInflation';
+import TableResultsInflation from './TableResultsInflation/TableResultsInflation';
 import './Inflation.css'
 
 interface YearlyData {
   year: number;
-  totalAdded: number;
-  totalInvested: number;
-  interestEarned: number;
-  totalAmount: number;
+  valueAfterInflation: number;
+  inflationLoss: number;
 }
 
 const Inflacion: React.FC = () => {
-  const [principal, setPrincipal] = useState<number>(1000);
-  const [rate, setRate] = useState<number>(10);
+  const [initialAmount, setInitialAmount] = useState<number>(1000);
+  const [inflationRate, setInflationRate] = useState<number>(3); // Tasa de inflación
   const [years, setYears] = useState<number>(10);
-  const [periodicDeposit, setPeriodicDeposit] = useState<number>(100);
-  const [frequency, setFrequency] = useState<string>('Mensual');
 
   const [result, setResult] = useState<number | null>(null);
-
-  const [, setTotalInvested] = useState<number | null>(null);
-  const [interestEarned, setInterestEarned] = useState<number | null>(null);
   const [yearlyData, setYearlyData] = useState<YearlyData[]>([]);
 
-  const calculateCompoundInterest = () => {
-    let frequencia = frequency === 'Mensual' ? 12 : 1;
-
-    let tasaInteresPorPeriodo = (rate / 100) / frequencia;
-    let montoTotal = principal;
+  const calculateInflationImpact = () => {
     let anualData: YearlyData[] = [];
 
-    let totalDeposits = periodicDeposit * frequencia * years;
-    let totalInversion = principal + totalDeposits;
-
     for (let i = 1; i <= years; i++) {
-      let periodosAño = frequencia * i;
+      let valorDespuesDeInflacion = initialAmount / Math.pow(1 + inflationRate / 100, i);
 
-      let montoInicialAcumulado = principal * Math.pow(1 + tasaInteresPorPeriodo, periodosAño);
-      let montoDepositosAcumulado = periodicDeposit * (Math.pow(1 + tasaInteresPorPeriodo, periodosAño) - 1) / tasaInteresPorPeriodo;
-      montoTotal = montoInicialAcumulado + montoDepositosAcumulado;
-
-      let totalDepositosAnuales = periodicDeposit * frequencia * i;
-      let totalInvestedYear = principal + totalDepositosAnuales;
-      let interesGanadoAño = montoTotal - totalInvestedYear;
+      let perdidaInflacion = initialAmount - valorDespuesDeInflacion;
 
       anualData.push({
         year: i,
-        totalAdded: periodicDeposit * frequencia,
-        totalInvested: totalInvestedYear,
-        interestEarned: interesGanadoAño,
-        totalAmount: montoTotal,
+        valueAfterInflation: valorDespuesDeInflacion,
+        inflationLoss: perdidaInflacion,
       });
     }
 
-    let gananciasInteres = montoTotal - totalInversion;
-
-    setResult(montoTotal);
-    setTotalInvested(totalInversion);
-    setInterestEarned(gananciasInteres);
+    let valorFinal = initialAmount / Math.pow(1 + inflationRate / 100, years);
+    setResult(valorFinal);
     setYearlyData(anualData);
   };
 
@@ -68,33 +43,29 @@ const Inflacion: React.FC = () => {
     <div className='App'>
       <div className="inflation">
         <div className="text-center mb-5">
-          <p className="title text-3xl mb-5 mt-5 text-blue-600 font-bold">Calculadora de la Inflación</p>
-          <p className="subtitle text-xl">Calcula el crecimiento de tus inversiones o ahorros con interés compuesto.</p>
+          <p className="title text-3xl mb-5 mt-5 text-blue-600 font-bold">Calculadora de Impacto de la Inflación</p>
+          <p className="subtitle text-xl">Calcula cómo la inflación afecta el valor de tu dinero con el tiempo.</p>
         </div>
         <div className="calculator-body flex flex-col gap-6">
-          <Calculator
-            principal={principal}
-            rate={rate}
+          <CalculatorInflation
+            initialAmount={initialAmount}
+            inflationRate={inflationRate}
             years={years}
-            periodicDeposit={periodicDeposit}
-            frequency={frequency}
-            setPrincipal={setPrincipal}
-            setRate={setRate}
+            setInitialAmount={setInitialAmount}
+            setInflationRate={setInflationRate}
             setYears={setYears}
-            setPeriodicDeposit={setPeriodicDeposit}
-            setFrequency={setFrequency}
-            calculateCompoundInterest={calculateCompoundInterest}
+            calculateInflationImpact={calculateInflationImpact}
           />
 
           {result !== null && (
             <div className="mt-5">
-              <Graphics principal={principal} totalDeposits={periodicDeposit * 12 * years} interestEarned={interestEarned ?? 0} periodicDeposit={periodicDeposit} />
+              <GraphicsInflation initialAmount={initialAmount} result={result} />
             </div>
           )}
 
           {yearlyData.length > 0 && (
-            <div className="flex justify-center items-center ">
-              <TableResults yearlyData={yearlyData} />
+            <div className="flex justify-center items-center">
+              <TableResultsInflation yearlyData={yearlyData} />
             </div>
           )}
 
