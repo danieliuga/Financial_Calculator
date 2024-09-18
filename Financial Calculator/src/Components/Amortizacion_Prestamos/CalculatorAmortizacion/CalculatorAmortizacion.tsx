@@ -65,7 +65,7 @@ const Calculator: React.FC<CalculatorProps> = ({
         <div className="flex flex-col mb-5 frequencia">
           <label className='mb-1 font-bold' htmlFor="frequency">Frecuencia de Pagos:</label>
           <select
-            className='p-3 rounded-md text-l border border-solid border-gray-300'
+            className='p-3 h-13 rounded-md text-l border border-solid border-gray-300'
             id="frequency"
             value={frequency}
             onChange={(e) => setFrequency(e.target.value)}
