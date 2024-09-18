@@ -12,9 +12,9 @@ const App: React.FC = () => {
     <Router>
       <div className="flex flex-col">
         <div className="header bg-gradient-to-r from-blue-500 to-blue-700 text-white p-6 shadow-lg">
-          <div className="container mx-auto flex justify-between items-center">
-            <p className="sm:text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight">Calculadora de Finanzas</p>
-            <div className="flex sm:gap-4 md:gap-4 lg:gap-6">
+          <div className="mx-auto grid grid-rows-[2fr_1fr] md:grid-rows-1 md:grid-cols-[3fr_1fr]">
+            <p className="flex justify-center lg:justify-start text-2xl sm:text-3xl font-extrabold tracking-tight">Calculadora de Finanzas</p>
+            <div className="flex justify-center gap-4 md:gap-4 lg:gap-6">
               <Link
                 to="/"
                 className="bg-white text-blue-700 px-4 py-2 rounded-md shadow-md hover:bg-gray-100 transition-all">

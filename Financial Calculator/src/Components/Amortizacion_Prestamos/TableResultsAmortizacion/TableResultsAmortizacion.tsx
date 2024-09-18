@@ -48,10 +48,10 @@ const TableResults: React.FC<TableResultsProps> = ({ amortizationData }) => {
                     {currentRows.map((data) => (
                         <tr key={data.year} className="border-b border-gray-200 hover:bg-gray-100 text-xs sm:text-sm">
                             <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.year}</td>
-                            <td className="py-2 px-5 sm:py-3 sm:px-6 text-left">{data.payment.toFixed(2)} €</td>
-                            <td className="py-2 px-6 sm:py-3 sm:px-6 text-left">{data.principalPaid.toFixed(2)} €</td>
-                            <td className="py-2 px-2 sm:py-3 sm:px-6 text-left">{data.interestPaid.toFixed(2)} €</td>
-                            <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.balance.toFixed(2)} €</td>
+                            <td className="py-2 px-5 sm:py-3 sm:px-6 text-left">{data.payment.toFixed(2)}€</td>
+                            <td className="py-2 px-6 sm:py-3 sm:px-6 text-left">{data.principalPaid.toFixed(2)}€</td>
+                            <td className="py-2 px-2 sm:py-3 sm:px-6 text-left">{data.interestPaid.toFixed(2)}€</td>
+                            <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.balance.toFixed(2)}€</td>
                         </tr>
                     ))}
                 </tbody>

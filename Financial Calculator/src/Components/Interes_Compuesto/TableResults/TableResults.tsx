@@ -39,19 +39,19 @@ const TableResults: React.FC<TableResultsProps> = ({ yearlyData }) => {
                     <tr className="bg-gray-200 text-gray-600 text-sm leading-normal">
                         <th className="py-2 px-4 sm:py-3 sm:px-6 text-left">Año</th>
                         <th className="py-2 px-4 sm:py-3 sm:px-6 text-left">Dinero Añadido</th>
-                        <th className="py-2 px-4 sm:py-3 sm:px-6 text-left">Total Invertido</th>
+                        <th className="py-2 px-1 sm:py-3 sm:px-6 text-left">Total Invertido</th>
                         <th className="py-2 px-4 sm:py-3 sm:px-6 text-left">Interés Ganado</th>
-                        <th className="py-2 px-4 sm:py-3 sm:px-6 text-left">Dinero Total</th>
+                        <th className="py-2 px-5 sm:py-3 sm:px-6 text-left">Dinero Total</th>
                     </tr>
                 </thead>
                 <tbody>
                     {currentRows.map((data) => (
                         <tr key={data.year} className="border-b border-gray-200 hover:bg-gray-100 text-xs sm:text-sm">
                             <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.year}</td>
-                            <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.totalAdded.toFixed(2)} €</td>
-                            <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.totalInvested.toFixed(2)} €</td>
-                            <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.interestEarned.toFixed(2)} €</td>
-                            <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.totalAmount.toFixed(2)} €</td>
+                            <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.totalAdded.toFixed(2)}€</td>
+                            <td className="py-2 px-0 sm:py-3 sm:px-6 text-left">{data.totalInvested.toFixed(2)}€</td>
+                            <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.interestEarned.toFixed(2)}€</td>
+                            <td className="py-2 px-2 sm:py-3 sm:px-6 text-left">{data.totalAmount.toFixed(2)}€</td>
                         </tr>
                     ))}
                 </tbody>

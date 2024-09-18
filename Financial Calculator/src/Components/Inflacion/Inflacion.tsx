@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import GraphicsInflation from './GraphicsInflation/GraphicsInflation';
 import CalculatorInflation from './CalculatorInflation/CalculatorInflation';
 import TableResultsInflation from './TableResultsInflation/TableResultsInflation';
-import AssistantInflation from './AssistantInflation';
+import AssistantInflation from './AssistantInflacion/AssistantInflation';
 import './Inflation.css'
 
 interface YearlyData {
@@ -21,6 +21,7 @@ const Inflacion: React.FC = () => {
   const [yearlyData, setYearlyData] = useState<YearlyData[]>([]);
 
   const [isAssistantVisible, setAssistantVisible] = useState<boolean>(false);
+  const [isButtonVisible, setButtonVisible] = useState<boolean>(true);
 
   const calculateInflationImpact = () => {
     let anualData: YearlyData[] = [];
@@ -46,8 +47,8 @@ const Inflacion: React.FC = () => {
     <div className='App'>
       <div className="inflation">
         <div className="text-center mb-5">
-          <p className="title text-3xl mb-5 mt-5 text-blue-600 font-bold">Calculadora de Impacto de la Inflación</p>
-          <p className="subtitle text-xl">Calcula cómo la inflación afecta el valor de tu dinero con el tiempo.</p>
+          <p className="title text-2xl md:text-3xl mb-5 mt-5 text-blue-600 font-bold">Calculadora de Impacto de la Inflación</p>
+          <p className="subtitle text-lg md:text-xl">Calcula cómo la inflación afecta el valor de tu dinero con el tiempo.</p>
         </div>
         <div className="calculator-body flex flex-col gap-6">
           <CalculatorInflation
@@ -74,13 +75,18 @@ const Inflacion: React.FC = () => {
 
         </div>
       </div>
-      <button
-        onClick={() => setAssistantVisible(true)}
-        style={{ position: 'fixed', bottom: 20, right: 20 }}
-        className='text-white bg-blue-600 px-4 py-2 rounded-md shadow-md hover:bg-blue-400 transition-all'
-      >
-        Assistant
-      </button>
+      {isButtonVisible && (
+        <button
+          onClick={() => {
+            setAssistantVisible(true);
+            setButtonVisible(false);
+          }}
+          style={{ position: 'fixed', bottom: 20, right: 20 }}
+          className='text-white bg-blue-600 px-4 py-2 rounded-md shadow-md hover:bg-blue-400 transition-all'
+        >
+          Assistant
+        </button>
+      )}
       {isAssistantVisible && <AssistantInflation isVisible={isAssistantVisible} onClose={() => setAssistantVisible(false)} />}
     </div>
   );

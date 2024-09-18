@@ -31,7 +31,7 @@ const Calculator: React.FC<CalculatorProps> = ({
     <>
       <div className='mr-5 ml-5'>
         <div className="flex flex-col mb-5 monto">
-          <label className='mb-1 font-bold' htmlFor="principal">Monto Inicial: (€)</label>
+          <label className='mb-1 font-bold text-xs sm:text-sm' htmlFor="principal">Monto Inicial: (€)</label>
           <input
             className='p-3 rounded-md text-l border border-solid border-gray-300'
             id="principal"
@@ -43,7 +43,7 @@ const Calculator: React.FC<CalculatorProps> = ({
         </div>
 
         <div className="flex flex-col mb-5 tasa">
-          <label className='mb-1 font-bold' htmlFor="rate">Tasa de Interés (%):</label>
+          <label className='mb-1 font-bold text-xs sm:text-sm' htmlFor="rate">Tasa de Interés: (%)</label>
           <input
             className='p-3 rounded-md text-l border border-solid border-gray-300'
             id="rate"
@@ -56,7 +56,7 @@ const Calculator: React.FC<CalculatorProps> = ({
 
         <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col mb-5 deposito">
-            <label className='mb-1 font-bold' htmlFor="periodicDeposit">Depósito Periódico: (€)</label>
+            <label className='mb-1 font-bold text-xs sm:text-sm' htmlFor="periodicDeposit">Depósito Periódico: (€)</label>
             <input
               className='p-3 rounded-md text-l border border-solid border-gray-300'
               id="periodicDeposit"
@@ -68,7 +68,7 @@ const Calculator: React.FC<CalculatorProps> = ({
           </div>
 
           <div className="flex flex-col mb-5 frequencia">
-            <label className='mb-1 font-bold' htmlFor="frequency">Frecuencia:</label>
+            <label className='mb-1 font-bold text-xs sm:text-sm' htmlFor="frequency">Frecuencia:</label>
             <select
               className='p-3 rounded-md text-l border border-solid border-gray-300'
               id="frequency"
@@ -82,7 +82,7 @@ const Calculator: React.FC<CalculatorProps> = ({
         </div>
 
         <div className="flex flex-col mb-5 años">
-          <label className='mb-1 font-bold' htmlFor="years">Años de Inversión:</label>
+          <label className='mb-1 font-bold text-xs sm:text-sm' htmlFor="years">Años de Inversión:</label>
           <input
             className='p-3 rounded-md text-l border border-solid border-gray-300'
             id="years"
