@@ -82,7 +82,7 @@ const Calculator: React.FC<CalculatorProps> = ({
         </div>
 
         <div className="flex flex-col mb-5 años">
-          <label className='mb-1 font-bold text-xs sm:text-sm' htmlFor="years">Años de Inversión:</label>
+          <label className='mb-1 font-bold text-xs sm:text-sm' htmlFor="years">Duración de la Inversión:  (Años)</label>
           <input
             className='p-3 rounded-md text-l border border-solid border-gray-300'
             id="years"
