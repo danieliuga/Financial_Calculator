@@ -2,7 +2,7 @@ import { PieChart } from '@mui/x-charts/PieChart';
 
 interface GraphicsType {
     initialAmount: number;
-    result: number; // Valor ajustado por inflación
+    result: number;
 }
 
 const GraphicsInflation = ({ initialAmount, result }: GraphicsType) => {
@@ -16,7 +16,7 @@ const GraphicsInflation = ({ initialAmount, result }: GraphicsType) => {
 
     return (
         <div>
-            <div className='grid grid-cols-[1fr_1fr]'>
+            <div className='grid md:grid-rows-[1fr_1fr] lg:grid-rows-1 lg:grid-cols-[1fr_1fr]'>
                 <div className='ml-5'>
                     <p className='text-3xl ml-5 mt-5'>Impacto de la Inflación</p>
                     <div className='border border-gray-300 ml-5 mr-5 mt-3'></div>
@@ -28,7 +28,7 @@ const GraphicsInflation = ({ initialAmount, result }: GraphicsType) => {
                         La inflación habría reducido el valor inicial de <strong>{initialAmount.toFixed(2)}</strong> € en <strong>{inflationLoss.toFixed(2)}</strong> €.
                     </p>
                     <div className='flex flex-row ml-5 mt-3'>
-                        <p className='text-green-600 pr-4 font-bold'>Monto Inicial:</p>
+                        <p className='verdeTexto pr-4 font-bold'>Monto Inicial:</p>
                         <p>{initialAmount.toFixed(2)} €</p>
                     </div>
                     <div className='flex flex-row ml-5 mt-1 mb-3'>
@@ -36,21 +36,33 @@ const GraphicsInflation = ({ initialAmount, result }: GraphicsType) => {
                         <p>{inflationLoss.toFixed(2)} €</p>
                     </div>
                 </div>
-                <div className='flex ml-0 p-0 mt-5'>
-                    <PieChart
+                <div className='ml-0 p-0 mt-5 grid grid-cols-[1fr_1fr]'>
+                    <div className=''>
+                        <PieChart
                         series={[
                             {
                                 outerRadius: 80,
                                 innerRadius: 50,
                                 data: data,
-                                cx: 125,
+                                cx: 85,
                             },
                         ]}
                         height={200}
                         slotProps={{
-                            legend: { hidden: false },
+                            legend: { hidden: true },
                         }}
                     />
+                    </div>
+                    <div className='flex flex-col mt-16'>
+                        <div className='flex flex-row justify-start gap-2'>
+                            <div className='w-5 h-5 verdeFondo'></div>
+                            <p className='flex justify-center'>Monto Inicial</p>
+                        </div>
+                        <div className='flex flex-row justify-start gap-2'>
+                            <div className='w-5 h-5 bg-red-500'></div>
+                            <p>Pérdida por Inflación</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

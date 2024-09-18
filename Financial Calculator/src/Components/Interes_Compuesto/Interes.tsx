@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Graphics from './Graphics/Graphics';
 import Calculator from './Calculator/Calculator';
 import TableResults from './TableResults/TableResults';
+import AssistantInterest from './AssistantInterest';
 import './Interes.css';
 
 interface YearlyData {
@@ -25,6 +26,8 @@ const Interes: React.FC = () => {
   const [, setTotalInvested] = useState<number | null>(null);
   const [interestEarned, setInterestEarned] = useState<number | null>(null);
   const [yearlyData, setYearlyData] = useState<YearlyData[]>([]);
+
+  const [isAssistantVisible, setAssistantVisible] = useState<boolean>(false);
 
   const calculateCompoundInterest = () => {
     let frequencia = frequency === 'Mensual' ? 12 : 1;
@@ -100,6 +103,14 @@ const Interes: React.FC = () => {
 
         </div>
       </div>
+      <button
+        onClick={() => setAssistantVisible(true)}
+        style={{ position: 'fixed', bottom: 20, right: 20 }}
+        className='text-white bg-blue-600 px-4 py-2 rounded-md shadow-md hover:bg-blue-400 transition-all'
+      >
+        Assistant
+      </button>
+      {isAssistantVisible && <AssistantInterest isVisible={isAssistantVisible} onClose={() => setAssistantVisible(false)} />}
     </div>
   );
 };

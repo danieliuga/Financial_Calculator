@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Graphics from './GraphicsAmortizacion/GraphicsAmortizacion';
 import Calculator from './CalculatorAmortizacion/CalculatorAmortizacion';
 import TableResults from './TableResultsAmortizacion/TableResultsAmortizacion';
+import AssistantAmortizacion from './AssistantAmortizacion';
 import './Amortizacion.css';
 
 interface AmortizacionData {
@@ -20,6 +21,8 @@ const Amortizacion: React.FC = () => {
     const [frequency, setFrequency] = useState<string>('Mensual');
 
     const [amortizationData, setAmortizationData] = useState<AmortizacionData[]>([]);
+
+    const [isAssistantVisible, setAssistantVisible] = useState<boolean>(false);
 
     const calculateAmortization = () => {
         const paymentsPerYear = frequency === 'Mensual' ? 12 : 1;
@@ -90,6 +93,15 @@ const Amortizacion: React.FC = () => {
 
                 </div>
             </div>
+
+            <button
+                onClick={() => setAssistantVisible(true)}
+                style={{ position: 'fixed', bottom: 20, right: 20 }}
+                className='text-white bg-blue-600 px-4 py-2 rounded-md shadow-md hover:bg-blue-400 transition-all'
+            >
+                Assistant
+            </button>
+            {isAssistantVisible && <AssistantAmortizacion isVisible={isAssistantVisible} onClose={() => setAssistantVisible(false)} />}
         </div>
     );
 };

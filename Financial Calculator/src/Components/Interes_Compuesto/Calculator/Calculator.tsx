@@ -30,7 +30,7 @@ const Calculator: React.FC<CalculatorProps> = ({
   return (
     <>
       <div className='mr-5 ml-5'>
-        <div className="flex flex-col mb-5">
+        <div className="flex flex-col mb-5 monto">
           <label className='mb-1 font-bold' htmlFor="principal">Monto Inicial: (€)</label>
           <input
             className='p-3 rounded-md text-l border border-solid border-gray-300'
@@ -42,7 +42,7 @@ const Calculator: React.FC<CalculatorProps> = ({
           />
         </div>
 
-        <div className="flex flex-col mb-5">
+        <div className="flex flex-col mb-5 tasa">
           <label className='mb-1 font-bold' htmlFor="rate">Tasa de Interés (%):</label>
           <input
             className='p-3 rounded-md text-l border border-solid border-gray-300'
@@ -55,7 +55,7 @@ const Calculator: React.FC<CalculatorProps> = ({
         </div>
 
         <div className="grid grid-cols-2 gap-5">
-          <div className="flex flex-col mb-5">
+          <div className="flex flex-col mb-5 deposito">
             <label className='mb-1 font-bold' htmlFor="periodicDeposit">Depósito Periódico: (€)</label>
             <input
               className='p-3 rounded-md text-l border border-solid border-gray-300'
@@ -67,7 +67,7 @@ const Calculator: React.FC<CalculatorProps> = ({
             />
           </div>
 
-          <div className="flex flex-col mb-5">
+          <div className="flex flex-col mb-5 frequencia">
             <label className='mb-1 font-bold' htmlFor="frequency">Frecuencia:</label>
             <select
               className='p-3 rounded-md text-l border border-solid border-gray-300'
@@ -81,7 +81,7 @@ const Calculator: React.FC<CalculatorProps> = ({
           </div>
         </div>
 
-        <div className="flex flex-col mb-5">
+        <div className="flex flex-col mb-5 años">
           <label className='mb-1 font-bold' htmlFor="years">Años de Inversión:</label>
           <input
             className='p-3 rounded-md text-l border border-solid border-gray-300'
@@ -93,7 +93,7 @@ const Calculator: React.FC<CalculatorProps> = ({
           />
         </div>
 
-        <button className='pt-3 pb-3 w-full bg-blue-600 text-white border-none rounded-md cursor-pointer text-l hover:bg-blue-800 transitio duration-300' onClick={calculateCompoundInterest}>Calcular</button>
+        <button className='calcular pt-3 pb-3 w-full bg-blue-600 text-white border-none rounded-md cursor-pointer text-l hover:bg-blue-800 transitio duration-300' onClick={calculateCompoundInterest}>Calcular</button>
       </div>
     </>
   );

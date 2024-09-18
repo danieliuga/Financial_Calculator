@@ -6,19 +6,59 @@ body {
     height: 100%;
 }
 
-.App {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+@media (min-width: 375px) and (max-width: 425px) {
+    .App {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .amortizacion {
+        grid-column: 1 / 4;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
 }
 
-.amortizacion {
-    grid-column: 2 / 3;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
+@media (min-width: 425px) and (max-width: 768px) {
+    .App {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .amortizacion {
+        grid-column: 1 / 4;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .App {
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .amortizacion {
+        grid-column: 2 / 3;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
 }

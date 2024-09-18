@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import GraphicsInflation from './GraphicsInflation/GraphicsInflation';
 import CalculatorInflation from './CalculatorInflation/CalculatorInflation';
 import TableResultsInflation from './TableResultsInflation/TableResultsInflation';
+import AssistantInflation from './AssistantInflation';
 import './Inflation.css'
 
 interface YearlyData {
@@ -13,11 +14,13 @@ interface YearlyData {
 
 const Inflacion: React.FC = () => {
   const [initialAmount, setInitialAmount] = useState<number>(1000);
-  const [inflationRate, setInflationRate] = useState<number>(3); // Tasa de inflación
+  const [inflationRate, setInflationRate] = useState<number>(3);
   const [years, setYears] = useState<number>(10);
 
   const [result, setResult] = useState<number | null>(null);
   const [yearlyData, setYearlyData] = useState<YearlyData[]>([]);
+
+  const [isAssistantVisible, setAssistantVisible] = useState<boolean>(false);
 
   const calculateInflationImpact = () => {
     let anualData: YearlyData[] = [];
@@ -71,6 +74,14 @@ const Inflacion: React.FC = () => {
 
         </div>
       </div>
+      <button
+        onClick={() => setAssistantVisible(true)}
+        style={{ position: 'fixed', bottom: 20, right: 20 }}
+        className='text-white bg-blue-600 px-4 py-2 rounded-md shadow-md hover:bg-blue-400 transition-all'
+      >
+        Assistant
+      </button>
+      {isAssistantVisible && <AssistantInflation isVisible={isAssistantVisible} onClose={() => setAssistantVisible(false)} />}
     </div>
   );
 };

@@ -26,7 +26,7 @@ const Calculator: React.FC<CalculatorProps> = ({
   return (
     <>
       <div className='mr-5 ml-5'>
-        <div className="flex flex-col mb-5">
+        <div className="flex flex-col mb-5 monto">
           <label className='mb-1 font-bold' htmlFor="principal">Monto del Préstamo: (€)</label>
           <input
             className='p-3 rounded-md text-l border border-solid border-gray-300'
@@ -38,7 +38,7 @@ const Calculator: React.FC<CalculatorProps> = ({
           />
         </div>
 
-        <div className="flex flex-col mb-5">
+        <div className="flex flex-col mb-5 tasa">
           <label className='mb-1 font-bold' htmlFor="rate">Tasa de Interés (%):</label>
           <input
             className='p-3 rounded-md text-l border border-solid border-gray-300'
@@ -50,7 +50,7 @@ const Calculator: React.FC<CalculatorProps> = ({
           />
         </div>
 
-        <div className="flex flex-col mb-5">
+        <div className="flex flex-col mb-5 años">
           <label className='mb-1 font-bold' htmlFor="years">Duración del Préstamo (Años):</label>
           <input
             className='p-3 rounded-md text-l border border-solid border-gray-300'
@@ -62,7 +62,7 @@ const Calculator: React.FC<CalculatorProps> = ({
           />
         </div>
 
-        <div className="flex flex-col mb-5">
+        <div className="flex flex-col mb-5 frequencia">
           <label className='mb-1 font-bold' htmlFor="frequency">Frecuencia de Pagos:</label>
           <select
             className='p-3 rounded-md text-l border border-solid border-gray-300'
@@ -75,7 +75,7 @@ const Calculator: React.FC<CalculatorProps> = ({
           </select>
         </div>
 
-        <button className='pt-3 pb-3 w-full bg-blue-600 text-white border-none rounded-md cursor-pointer text-l hover:bg-blue-800 transitio duration-300' onClick={calculateCompoundInterest}>Calcular Amortización</button>
+        <button className='calcular pt-3 pb-3 w-full bg-blue-600 text-white border-none rounded-md cursor-pointer text-l hover:bg-blue-800 transitio duration-300' onClick={calculateCompoundInterest}>Calcular Amortización</button>
       </div>
     </>
   );

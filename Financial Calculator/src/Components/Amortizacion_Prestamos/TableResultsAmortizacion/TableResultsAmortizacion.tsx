@@ -37,21 +37,21 @@ const TableResults: React.FC<TableResultsProps> = ({ amortizationData }) => {
             <table className="min-w-full leading-normal">
                 <thead>
                     <tr className="bg-gray-200 text-gray-600 text-sm leading-normal">
-                        <th className="py-3 px-6 text-left">Año</th>
-                        <th className="py-3 px-6 text-left">Pago</th>
-                        <th className="py-3 px-6 text-left">Principal Pagado</th>
-                        <th className="py-3 px-6 text-left">Interés Pagado</th>
-                        <th className="py-3 px-6 text-left">Saldo Restante</th>
+                        <th className="py-2 px-4 sm:py-3 sm:px-6 text-left">Año</th>
+                        <th className="py-2 px-8 sm:py-3 sm:px-6 text-left">Pago</th>
+                        <th className="py-2 px-6 sm:py-3 sm:px-6 text-left">Principal Pagado</th>
+                        <th className="py-2 px-2 sm:py-3 sm:px-6 text-left">Interés Pagado</th>
+                        <th className="py-2 px-4 sm:py-3 sm:px-6 text-left">Saldo Restante</th>
                     </tr>
                 </thead>
                 <tbody>
                     {currentRows.map((data) => (
-                        <tr key={data.year} className="border-b border-gray-200 hover:bg-gray-100">
-                            <td className="py-3 px-6 text-left">{data.year}</td>
-                            <td className="py-3 px-6 text-left">{data.payment.toFixed(2)} €</td>
-                            <td className="py-3 px-6 text-left">{data.principalPaid.toFixed(2)} €</td>
-                            <td className="py-3 px-6 text-left">{data.interestPaid.toFixed(2)} €</td>
-                            <td className="py-3 px-6 text-left">{data.balance.toFixed(2)} €</td>
+                        <tr key={data.year} className="border-b border-gray-200 hover:bg-gray-100 text-xs sm:text-sm">
+                            <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.year}</td>
+                            <td className="py-2 px-5 sm:py-3 sm:px-6 text-left">{data.payment.toFixed(2)} €</td>
+                            <td className="py-2 px-6 sm:py-3 sm:px-6 text-left">{data.principalPaid.toFixed(2)} €</td>
+                            <td className="py-2 px-2 sm:py-3 sm:px-6 text-left">{data.interestPaid.toFixed(2)} €</td>
+                            <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.balance.toFixed(2)} €</td>
                         </tr>
                     ))}
                 </tbody>

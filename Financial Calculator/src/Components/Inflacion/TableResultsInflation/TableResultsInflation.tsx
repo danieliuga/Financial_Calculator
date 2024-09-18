@@ -35,23 +35,23 @@ const TableResultsInflation: React.FC<TableResultsProps> = ({ yearlyData }) => {
             <table className="min-w-full leading-normal">
                 <thead>
                     <tr className="bg-gray-200 text-gray-600 text-sm leading-normal">
-                        <th className="py-3 px-6 text-left">Año</th>
-                        <th className="py-3 px-6 text-left">Dinero Total Inicial</th>
-                        <th className="py-3 px-6 text-left">Porcentaje Perdido</th>
-                        <th className="py-3 px-6 text-left">Dinero Perdido</th>
-                        <th className="py-3 px-6 text-left">Dinero Total Final</th>
+                        <th className="py-2 px-4 sm:py-3 sm:px-6 text-left">Año</th>
+                        <th className="py-2 px-4 sm:py-3 sm:px-6 text-left">Dinero Total Inicial</th>
+                        <th className="py-2 px-4 sm:py-3 sm:px-6 text-left">Porcentaje Perdido</th>
+                        <th className="py-2 px-4 sm:py-3 sm:px-6 text-left">Dinero Perdido</th>
+                        <th className="py-2 px-4 sm:py-3 sm:px-6 text-left">Dinero Total Final</th>
                     </tr>
                 </thead>
                 <tbody>
                     {currentRows.map((data) => {
                         const porcentajePerdido = (data.inflationLoss / (data.valueAfterInflation + data.inflationLoss)) * 100;
                         return (
-                            <tr key={data.year} className="border-b border-gray-200 hover:bg-gray-100">
-                                <td className="py-3 px-6 text-left">{data.year}</td>
-                                <td className="py-3 px-6 text-left">{(data.inflationLoss + data.valueAfterInflation).toFixed(2)} €</td>
-                                <td className="py-3 px-6 text-left">{porcentajePerdido.toFixed(2)} %</td>
-                                <td className="py-3 px-6 text-left">{data.inflationLoss.toFixed(2)} €</td>
-                                <td className="py-3 px-6 text-left">{data.valueAfterInflation.toFixed(2)} €</td>
+                            <tr key={data.year} className="border-b border-gray-200 hover:bg-gray-100 text-xs sm:text-sm">
+                                <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.year}</td>
+                                <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{(data.inflationLoss + data.valueAfterInflation).toFixed(2)} €</td>
+                                <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{porcentajePerdido.toFixed(2)} %</td>
+                                <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.inflationLoss.toFixed(2)} €</td>
+                                <td className="py-2 px-4 sm:py-3 sm:px-6 text-left">{data.valueAfterInflation.toFixed(2)} €</td>
                             </tr>
                         );
                     })}
